@@ -134,7 +134,9 @@ ngx_http_auth_request_handler(ngx_http_request_t *r)
 
         /* return appropriate status */
 
-        if (ctx->status == NGX_HTTP_FORBIDDEN) {
+        if (ctx->status == NGX_HTTP_FORBIDDEN
+            || ctx->status == NGX_HTTP_NOT_FOUND)
+        {
             return ctx->status;
         }
 
